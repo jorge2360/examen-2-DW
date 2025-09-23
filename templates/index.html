@@ -1,0 +1,95 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Inicio - Tienda Online{% endblock %}
+
+{% block meta_description %}
+Tienda online de electrodomésticos, muebles y productos para el hogar con las mejores ofertas.
+{% endblock %}
+
+{% block content %}
+<!-- Hero Header -->
+<section id="hero" class="d-flex align-items-center">
+    <div class="container">
+        <h1>{% block hero_title %}Bienvenidos a Tienda Online{% endblock %}</h1>
+        <h2>{% block hero_subtitle %}Encuentra los mejores electrodomésticos y muebles para tu hogar{% endblock %}</h2>
+        <a href="#products" class="btn-get-started scrollto">Explorar Productos</a>
+    </div>
+</section>
+
+<!-- Main Content -->
+<main id="main">
+    <!-- Productos -->
+    <section id="products" class="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>Productos</h2>
+                <p>Explora nuestro catálogo de electrodomésticos y muebles</p>
+            </div>
+            <div class="row">
+                {% for product in products %}
+                <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+                    <div class="icon-box">
+                        <img src="{% static 'assets/img/'|add:product.image %}" class="img-fluid" alt="{{ product.name }}">
+                        <h4>{{ product.name }}</h4>
+                        <p>{{ product.description }}</p>
+                        <a href="{% url 'product_detail' product.id %}" class="btn btn-primary">Ver Detalles</a>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+    <!-- Contacto (adaptado del template GP) -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Contacto</h2>
+                <p>Contáctanos para más información</p>
+            </div>
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="info-box">
+                        <i class="bx bx-map"></i>
+                        <h3>Dirección</h3>
+                        <p>Ciudad, País</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="info-box">
+                        <i class="bx bx-envelope"></i>
+                        <h3>Email</h3>
+                        <p>contacto@tiendaonline.com</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="info-box">
+                        <i class="bx bx-phone-call"></i>
+                        <h3>Teléfono</h3>
+                        <p>+123 456 7890</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-6">
+                    <!-- Aquí puedes agregar un formulario Django -->
+                    <form action="{% url 'contact' %}" method="post" class="php-email-form">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <input type="text" name="name" class="form-control" placeholder="Nombre" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" name="email" class="form-control" placeholder="Email" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea class="form-control" name="message" rows="5" placeholder="Mensaje" required></textarea>
+                        </div>
+                        <div class="text-center"><button type="submit">Enviar</button></div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+{% endblock %}

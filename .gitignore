@@ -1,0 +1,1 @@
+examendw/ staticfiles/ *.pyc pycache/ *.sqlite3 *.log *.env *.bak *.swp
