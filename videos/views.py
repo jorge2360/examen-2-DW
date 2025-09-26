@@ -3,6 +3,9 @@ from django.views.generic import ListView, CreateView
 from .models import Video
 from .forms import VideoForm
 
+def index(request):
+    return render(request, 'index.html')
+
 class VideosListCreateView(ListView, CreateView):
     model = Video
     form_class = VideoForm

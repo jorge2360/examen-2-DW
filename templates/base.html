@@ -4,10 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="{% block meta_description %}Tienda de electrodomésticos, muebles y productos para el hogar{% endblock %}">
-    <meta name="keywords" content="ecommerce, electrodomésticos, muebles, hogar">
+    <meta name="description" content="{% block meta_description %}Tienda de cursos en línea{% endblock %}">
+    <meta name="keywords" content="cursos, educación, videos, usuarios">
     <meta name="author" content="Jorge Garcia">
-    <title>{% block title %}Tienda Online{% endblock %}</title>
+    <title>{% block title %}Cursos en Línea{% endblock %}</title>
 
     <!-- Favicon -->
     <link href="{% static 'assets/img/favicon.png' %}" rel="icon">
@@ -32,13 +32,13 @@
     <!-- Header / Navbar -->
     <header id="header" class="fixed-top">
         <div class="container d-flex align-items-center">
-            <h1 class="logo me-auto"><a href="{% url 'index' %}">{% block logo %}Tienda Online{% endblock %}</a></h1>
+            <h1 class="logo me-auto"><a href="{% url 'index' %}">{% block logo %}Cursos en Línea{% endblock %}</a></h1>
             <nav id="navbar" class="navbar order-last order-lg-0">
                 <ul>
-                    <li><a class="nav-link scrollto active" href="#hero">Inicio</a></li>
-                    <li><a class="nav-link scrollto" href="#about">Nosotros</a></li>
-                    <li><a class="nav-link scrollto" href="#services">Productos</a></li>
-                    <li><a class="nav-link scrollto" href="#contact">Contacto</a></li>
+                    <li><a class="nav-link scrollto active" href="{% url 'index' %}">Inicio</a></li>
+                    <li><a class="nav-link scrollto" href="{% url 'videos' %}">Videos</a></li>
+                    <li><a class="nav-link scrollto" href="{% url 'usuarios' %}">Usuarios</a></li>
+                    <li><a class="nav-link scrollto" href="{% url 'creditos' %}">Créditos</a></li>
                     {% block navbar_extra %}
                     <!-- Agrega elementos adicionales al navbar aquí -->
                     {% endblock %}
@@ -59,35 +59,35 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-3 col-md-6 footer-contact">
-                        <h3>{% block footer_logo %}Tienda Online{% endblock %}</h3>
+                        <h3>{% block footer_logo %}Cursos en Línea{% endblock %}</h3>
                         <p>
                             {% block footer_contact %}
                             Dirección: Ciudad, País<br>
                             Teléfono: +123 456 7890<br>
-                            Email: contacto@tiendaonline.com<br>
+                            Email: contacto@cursosonline.com<br>
                             {% endblock %}
                         </p>
                     </div>
                     <div class="col-lg-3 col-md-6 footer-links">
                         <h4>Enlaces Útiles</h4>
                         <ul>
-                            <li><a href="#">Inicio</a></li>
-                            <li><a href="#">Nosotros</a></li>
-                            <li><a href="#">Productos</a></li>
-                            <li><a href="#">Contacto</a></li>
+                            <li><a href="{% url 'index' %}">Inicio</a></li>
+                            <li><a href="{% url 'videos' %}">Videos</a></li>
+                            <li><a href="{% url 'usuarios' %}">Usuarios</a></li>
+                            <li><a href="{% url 'creditos' %}">Créditos</a></li>
                         </ul>
                     </div>
                     <div class="col-lg-3 col-md-6 footer-links">
                         <h4>Nuestros Servicios</h4>
                         <ul>
-                            <li><a href="#">Electrodomésticos</a></li>
-                            <li><a href="#">Muebles</a></li>
-                            <li><a href="#">Productos para el Hogar</a></li>
+                            <li><a href="#">Cursos en Línea</a></li>
+                            <li><a href="#">Videos Educativos</a></li>
+                            <li><a href="#">Soporte a Usuarios</a></li>
                         </ul>
                     </div>
                     <div class="col-lg-3 col-md-6 footer-newsletter">
                         <h4>Suscríbete</h4>
-                        <p>{% block newsletter_text %}Recibe nuestras ofertas y novedades.{% endblock %}</p>
+                        <p>{% block newsletter_text %}Recibe nuestras novedades y cursos nuevos.{% endblock %}</p>
                         <form action="" method="post">
                             {% csrf_token %}
                             <input type="email" name="email">
@@ -99,7 +99,7 @@
         </div>
         <div class="container">
             <div class="copyright">
-                &copy; Copyright <strong><span>{% block copyright %}Tienda Online{% endblock %}</span></strong>. Todos los derechos reservados.
+                &copy; Copyright <strong><span>{% block copyright %}Cursos en Línea{% endblock %}</span></strong>. Todos los derechos reservados.
             </div>
         </div>
     </footer>
